@@ -1,0 +1,19 @@
+name: ADO_test/snsinahub.airflow
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - "*"
+env:
+  tag: "${{ github.run_id }}"
+jobs:
+  Build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Build an image
+      run: docker build ${{ github.workspace }} --file "${{ github.workspace }}/Dockerfile"
