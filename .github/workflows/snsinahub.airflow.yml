@@ -1,5 +1,6 @@
 name: ADO_test/snsinahub.airflow
 on:
+  workflow_dispatch:
   push:
     branches:
     - main
